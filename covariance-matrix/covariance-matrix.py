@@ -6,10 +6,12 @@ def covariance_matrix(X):
     """
     # Write code here
     X = np.asarray(X)
+    u = np.mean(X, axis=0)
+    Xc = X-u
     if (X.shape[0] >= 2) and X.ndim==2:
-        cov = np.cov(X, rowvar=False)
-        cov = np.atleast_2d(cov)
-        return cov
+        cov = np.zeros((u.shape[0],u.shape[0]))
+        cov = Xc.T @ Xc / (X.shape[0]-1) 
     else:
         return None
+    return cov
     pass
