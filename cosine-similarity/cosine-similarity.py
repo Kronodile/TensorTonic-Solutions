@@ -12,7 +12,7 @@ def cosine_similarity(a, b):
     dot_product = np.dot(a,b)
     cross_product = np.linalg.norm(a) * np.linalg.norm(b)
     cosine_similarity = dot_product/cross_product
-    if cosine_similarity == 0 or cross_product==0:
+    if cross_product==0:
         return 0
     else:
         return float(cosine_similarity)
